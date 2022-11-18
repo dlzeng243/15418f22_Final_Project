@@ -10,6 +10,7 @@
 #include <sstream>
 #include <string>
 #include <vector>
+#include <stack>
 
 // variables:
 
@@ -25,6 +26,10 @@ std::string file = "";
 std::vector<std::string> pieces;
 
 // useful functions:
+
+// dfs to solve the board
+std::vector<std::vector<std::string>> solve();
+
 // loads pieces from a file into a vector
 // file is structured as one piece per line, in the format <letter><size>
 inline bool loadFromFile(std::string fileName) {
@@ -36,6 +41,6 @@ inline bool loadFromFile(std::string fileName) {
         pieces.push_back(line);
     }
     return true;
-}
+};
 
 #endif

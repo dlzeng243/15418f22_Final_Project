@@ -1,4 +1,26 @@
 #include "solver.h"
+#include "pieces.h"
+
+std::vector<std::vector<std::string>> solve(std::vector<std::vector<std::string>> board, std::vector<std::string> pieces) {
+    // stack of board states
+    std::stack<std::pair(std::vector<std::vector<std::string>>, int)> st;
+    st.push(std::make_pair(board, 0));
+    while(!st.empty()) {
+        // get next board
+        auto b = st.top();
+        st.pop();
+        // if we've reached the end of the pieces
+        if(b.second == pieces.size()) {
+            return b.first;
+        }
+        std::string next_piece = pieces[b.second];
+
+        // check if it's valid (can optimize here)
+
+        // place all possible rotations / positions of current piece on stack
+    }
+}
+
 
 int main(int argc, char** argv) {
     // read command line arguments
@@ -15,6 +37,8 @@ int main(int argc, char** argv) {
     }
     // read pieces from file
     loadFromFile(file);
+    // sort so we have pieces going in consecutive order
+    std::sort(pieces);
 
     // make sure board can be tiled by the pieces provided mathematically
     int sum = 0;
