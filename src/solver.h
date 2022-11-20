@@ -35,6 +35,7 @@ std::vector<std::vector<std::string>> solve();
 // file is structured as one piece per line, in the format <letter><size>
 inline bool loadFromFile(std::string fileName) {
     std::ifstream f(fileName);
+    // make sure we can read the file
     assert((bool)f && "Cannot open input file");
     std::vector<std::string> pieces;
     std::string line;
@@ -47,5 +48,15 @@ inline bool loadFromFile(std::string fileName) {
     }
     return true;
 };
+
+inline void print_board(std::vector<std::vector<int>> b) {
+    for(int i = 0; i < height; i++) {
+        for(int j = 0; j < width; j++) {
+            std::cout << index_to_pieces[b[i][j]] << " ";
+        }
+        std::cout << "\n";
+    }
+    std::cout << "\n";
+}
 
 #endif
