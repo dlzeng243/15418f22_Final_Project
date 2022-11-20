@@ -11,6 +11,7 @@
 #include <string>
 #include <vector>
 #include <stack>
+#include "pieces.h"
 
 // variables:
 
@@ -23,7 +24,7 @@ int height = 4;
 std::string file = "";
 
 // pieces to try to use to tile a board
-std::vector<std::string> pieces;
+std::vector<int> pieces_index;
 
 // useful functions:
 
@@ -35,10 +36,14 @@ std::vector<std::vector<std::string>> solve();
 inline bool loadFromFile(std::string fileName) {
     std::ifstream f(fileName);
     assert((bool)f && "Cannot open input file");
-
+    std::vector<std::string> pieces;
     std::string line;
     while (std::getline(f, line)) {
         pieces.push_back(line);
+    }
+    pieces_index.resize(pieces.size());
+    for(size_t i = 0; i < pieces.size(); i++) {
+        pieces_index[i] = pieces_to_index[pieces[i]];
     }
     return true;
 };

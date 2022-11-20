@@ -1,9 +1,8 @@
 #include "solver.h"
-#include "pieces.h"
 
 std::vector<std::vector<std::string>> solve(std::vector<std::vector<std::string>> board, std::vector<std::string> pieces) {
     // stack of board states
-    std::stack<std::pair(std::vector<std::vector<std::string>>, int)> st;
+    std::stack<std::pair<std::vector<std::vector<std::string>>, size_t>> st;
     st.push(std::make_pair(board, 0));
     while(!st.empty()) {
         // get next board
@@ -16,9 +15,14 @@ std::vector<std::vector<std::string>> solve(std::vector<std::vector<std::string>
         std::string next_piece = pieces[b.second];
 
         // check if it's valid (can optimize here)
+        // at the moment, don't need to do anything
 
-        // place all possible rotations / positions of current piece on stack
+        // get all possible rotations for a given piece
+
+        // iterate through the current board and see if we can place each rotation + position in
+        // then put on stack
     }
+    return {};
 }
 
 
@@ -38,20 +42,32 @@ int main(int argc, char** argv) {
     // read pieces from file
     loadFromFile(file);
     // sort so we have pieces going in consecutive order
-    std::sort(pieces);
+    std::sort(pieces_index.begin(), pieces_index.end());
 
     // make sure board can be tiled by the pieces provided mathematically
     int sum = 0;
-    for(size_t i = 0; i < pieces.size(); i++) {
-        sum += (int)(pieces[i].at(1) - '0');
+    for(size_t i = 0; i < pieces_index.size(); i++) {
+        if(pieces_index[i] < 1) {
+            sum += 2;
+        }
+        else if(pieces_index[i] < 3) {
+            sum += 3;
+        }
+        // at the moment, only contain up to tetrominos
+        else {
+            sum += 4;
+        }
     }
     assert(sum == width * height);
 
     // initialize board
-    std::vector<std::vector<std::string>> board;
+    std::vector<std::vector<int>> board;
     board.resize(height);
     for(int i = 0; i < height; i++) {
         board[i].resize(width);
+        for(int j = 0; j < width; j++) {
+            board[i][j] = -1;
+        }
     }
 
     // do dfs to solve
