@@ -120,7 +120,10 @@ int main(int argc, char** argv) {
     }
 
     // do dfs to solve
+    Timer t;
+    t.reset();
     auto final_board = solve(board, pieces_index);
+    std::cout << "time to solve: " << t.elapsed() << "\n";
 
     // print out board
     print_board(final_board);
