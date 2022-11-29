@@ -31,6 +31,7 @@ std::vector<int> pieces_index;
 // dfs to solve the board
 std::vector<std::vector<std::string>> solve();
 
+
 // loads pieces from a file into a vector
 // file is structured as one piece per line, in the format <letter><size>
 inline bool loadFromFile(std::string fileName) {
@@ -39,6 +40,13 @@ inline bool loadFromFile(std::string fileName) {
     assert((bool)f && "Cannot open input file");
     std::vector<std::string> pieces;
     std::string line;
+    // first line is height and width
+    std::getline(f, line);
+    size_t pos = line.find(" ");
+    height = atoi((line.substr(0, pos).c_str()));
+    width = atoi((line.substr(pos + 1, line.size() - pos).c_str()));
+    // std::cout << "height: " << height << " width: " << width << "\n";
+    // rest of the file are pieces
     while (std::getline(f, line)) {
         pieces.push_back(line);
     }

@@ -83,14 +83,8 @@ want to iterate from w = 0 to w = 8 -> w < width - w_len + 1
 int main(int argc, char** argv) {
     // read command line arguments
     for (int i = 1; i < argc; i++) {
-        // sets the width
-        if (strcmp(argv[i], "--width") == 0)
-            width = atoi(argv[i + 1]);
-        // sets the height
-        else if (strcmp(argv[i], "--height") == 0)
-            height = atoi(argv[i + 1]);
         // sets the file name to read the pieces from
-        else if (strcmp(argv[i], "--file") == 0)
+        if (strcmp(argv[i], "--file") == 0)
             file = argv[i + 1];
     }
     // not a degenerate board
