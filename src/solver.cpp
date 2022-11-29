@@ -106,8 +106,11 @@ int main(int argc, char** argv) {
             sum += 3;
         }
         // at the moment, only contain up to tetrominos
-        else {
+        else if(pieces_index[i] < 11) {
             sum += 4;
+        }
+        else {
+            sum += 5;
         }
     }
     assert(sum == width * height);

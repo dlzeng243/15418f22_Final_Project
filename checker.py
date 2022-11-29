@@ -12,6 +12,7 @@ scenes = (
     ('example'),
     ('four_T'),
     # ('none'),
+    ('penta'),
     ('simple_IJLO')
 )
 
@@ -19,6 +20,7 @@ scene_names = (
     'example', 
     'four_T', 
     # 'none', 
+    'penta',
     'simple_IJLO'
 )
 
