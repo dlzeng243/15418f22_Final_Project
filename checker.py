@@ -52,7 +52,7 @@ os.system('mkdir -p output')
 os.system('rm -rf output/*')
 for i, (scene_name) in enumerate(scenes):
     print(f'--- running {scene_name} ---')
-    init_file = f'inputs/{scene_name}.txt'
+    init_file = f'input/{scene_name}.txt'
     output_file = f'output/{scene_name}.txt'
     cmd = f'./solver --file {init_file} > {output_file}'
     ret = os.system(cmd)
