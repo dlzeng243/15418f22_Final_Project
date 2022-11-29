@@ -3,14 +3,16 @@ CFLAGS := -std=c++17 -fvisibility=hidden -lpthread -Wall -Wextra -O2
 
 CXX = g++
 
-TARGET = solver
 
 HEADERS := src/*.h
 
-all: $(TARGET)
+all: solver-sequential solver-parallel
 
-$(TARGET): $(HEADERS) src/solver.cpp
-	$(CXX) -o $@ $(CFLAGS) src/solver.cpp
+solver-sequential: $(HEADERS) src/solver-sequential.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-sequential.cpp
+
+solver-parallel: $(HEADERS) src/solver-parallel.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-parallel.cpp
 
 clean:
-	rm -rf ./solver
+	rm -rf ./solver*

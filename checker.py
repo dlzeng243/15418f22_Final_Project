@@ -4,10 +4,6 @@ import sys
 import os
 import re
 
-# Usage: ./checker.py ser/par
-version = sys.argv[1]
-prog = 'solver-' + version
-
 scenes = (
     ('example'),
     ('four_T'),
@@ -54,7 +50,9 @@ for i, (scene_name) in enumerate(scenes):
     print(f'--- running {scene_name} ---')
     init_file = f'input/{scene_name}.txt'
     output_file = f'output/{scene_name}.txt'
-    cmd = f'./solver --file {init_file} > {output_file}'
+    cmd = f'./solver-sequential --file {init_file} >> {output_file}'
+    ret = os.system(cmd)
+    cmd = f'./solver-parallel --file {init_file} >> {output_file}'
     ret = os.system(cmd)
     assert ret == 0, 'ERROR -- nbody exited with errors'
     # t = float(re.findall(
