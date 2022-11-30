@@ -1,4 +1,4 @@
-#include "solver.h"
+#include "solver_p.h"
 
 std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     // stack of board states
@@ -80,6 +80,71 @@ want to iterate from w = 0 to w = 8 -> w < width - w_len + 1
 
 */
 
+std::vector<std::vector<int>> solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+    return solve_recursive_wrapper(board, 0, pieces);
+}
+
+std::vector<std::vector<int>> solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces) {
+    // if we've reached the end of the pieces
+    if(piece_num == pieces.size()) {
+        return board;
+    }
+    int next_piece = pieces[piece_num];
+    // check if it's valid (can optimize here)
+    // at the moment, don't need to do anything
+
+    // get all possible rotations for a given piece
+    std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece - 1];
+
+    // iterate through the current board and see if we can place each rotation + position in
+    // then put on stack
+    for(size_t i = 0; i < orientations.size(); i++) {
+        // 2d array of the piece orientation
+        std::vector<std::vector<int>> &rotation = orientations[i];
+        // we made rotation, so we know rotation is not degenerate
+        int h_len = (int)rotation.size();
+        int w_len = (int)rotation[0].size();
+        // try placing piece in bottom left spot
+        for(int h = 0; h < height - h_len + 1; h++) {
+            for(int w = 0; w < width - w_len + 1; w++) {
+                // check if any spots in the piece size is taken up
+                int check = 0;
+                // at the moment, just go through the whole subarray
+                // could probably optimize in the future
+                for(int a = 0; a < h_len; a++) {
+                    for(int b = 0; b < w_len; b++) {
+                        // position is an empty space
+                        if(rotation[a][b] == 0) {
+                            continue;
+                        }
+                        // position is not an empty space - need to check if it's filled in the board
+                        else if (board[h + a][w + b] > 0) {
+                            check++;
+                        }
+                    }
+                }
+                // only way this occurs is if all positions checked are empty
+                if(check == 0) {
+                    auto board_copy = board;
+                    for(int a = 0; a < h_len; a++) {
+                        for(int b = 0; b < w_len; b++) {
+                            if(rotation[a][b] == 0) {
+                                continue;
+                            }
+                            board_copy[h + a][w + b] = rotation[a][b];
+                        }
+                    }
+                    {
+                    #pragma omp task
+                    solve_recursive_wrapper(board_copy, piece_num+1, pieces);
+                    }
+                }
+            }
+        }
+    }
+    return {};
+}
+
 int main(int argc, char** argv) {
     // read command line arguments
     for (int i = 1; i < argc; i++) {
@@ -124,8 +189,14 @@ int main(int argc, char** argv) {
 
     // do dfs to solve
     Timer t;
+    std::vector<std::vector<int>> final_board;
     t.reset();
-    auto final_board = solve(board, pieces_index);
+    #pragma omp parallel
+    #pragma omp single
+    {
+        #pragma omp task mergeable
+        final_board = solve_recursive(board, pieces_index);
+    }
     float time = t.elapsed();
     printf("parallel time to solve: %.6fs\n", time);
 

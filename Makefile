@@ -1,5 +1,5 @@
 # Change -O2 to -g if need to debug
-CFLAGS := -std=c++17 -fvisibility=hidden -lpthread -Wall -Wextra -O2
+CFLAGS := -std=c++17 -fvisibility=hidden -lpthread -Wall -Wextra -O2 -fopenmp
 
 CXX = g++
 
