@@ -4,21 +4,15 @@ import sys
 import os
 import re
 
-scenes = (
-    ('example'),
-    ('four_T'),
-    # ('none'),
-    ('penta'),
-    ('simple_IJLO')
-)
+filepath = __file__.split('/')
+filepath.pop()
+filepath.append("input")
+files = os.listdir("/".join(filepath))
 
-scene_names = (
-    'example', 
-    'four_T', 
-    # 'none', 
-    'penta',
-    'simple_IJLO'
-)
+scenes = (list(map(lambda x: '.'.join(x.split('.')[:-1]), files)))
+print(scenes)
+
+exclude = ['none']
 
 perfs = [[None] * 2 for _ in range(len(scenes))]
 
@@ -47,17 +41,20 @@ perfs = [[None] * 2 for _ in range(len(scenes))]
 os.system('mkdir -p output')
 os.system('rm -rf output/*')
 for i, (scene_name) in enumerate(scenes):
+    if scene_name in exclude:
+        continue
     print(f'--- running {scene_name} ---')
     init_file = f'input/{scene_name}.txt'
     output_file = f'output/{scene_name}.txt'
     cmd = f'./solver-sequential --file {init_file} >> {output_file}'
     ret = os.system(cmd)
+    assert ret == 0, 'ERROR -- solver-sequential exited with errors'
+    t_seq = float(re.findall(r'sequential time to solve: (.*?)s', open(output_file).read())[0])
+    print(f'sequential time to solve: {t_seq:.9f}s\n')
     cmd = f'./solver-parallel --file {init_file} >> {output_file}'
     ret = os.system(cmd)
-    assert ret == 0, 'ERROR -- nbody exited with errors'
-    t_seq = float(re.findall(r'sequential time to solve: (.*?)s', open(output_file).read())[0])
+    assert ret == 0, 'ERROR -- solver-parallel exited with errors'
     t_par = float(re.findall(r'parallel time to solve: (.*?)s', open(output_file).read())[0])
-    print(f'sequential time to solve: {t_seq:.9f}s\n')
     print(f'parallel time to solve: {t_par:.9f}s\n')
     perfs[i][0] = t_seq
     perfs[i][1] = t_par

@@ -38,6 +38,44 @@ void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> piece
 
 void solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces);
 
+std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const std::vector<std::pair<int,int>> &ijs) {
+    std::vector<int> sec_sizes;
+    int M = board.size(), N = board[0].size();
+    std::vector<int> visited(M * N, -1);
+    auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first*N + p.second];};
+    auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first*N + p.second] = value;};
+
+    for(int idx = 0; idx < ijs.size(); idx++) {
+        if (board[ijs[idx].first][ijs[idx].second] != 0) {
+            sec_sizes.push_back(0);
+            continue;
+        }
+        if (visited_at(ijs[idx]) != 0) {
+            sec_sizes.push_back(sec_sizes[visited_at(ijs[idx])]);
+            continue;
+        }
+        int section_size = 0;
+        std::stack<std::pair<int, int>> st;
+        st.push(ijs[idx]);
+        while(!st.empty()) {
+            auto coords = st.top();
+            st.pop();
+            if (coords.first < 0 || coords.first >= M
+                || coords.second < 0 || coords.second >= N)
+                continue;
+            if (visited_at(coords) != -1) continue;
+            if (board[coords.first][coords.second] != 0) continue;
+            visit_loc(coords, idx);
+            section_size++;
+            st.push(std::make_pair(coords.first+1, coords.second));
+            st.push(std::make_pair(coords.first-1, coords.second));
+            st.push(std::make_pair(coords.first, coords.second+1));
+            st.push(std::make_pair(coords.first, coords.second-1));
+        }
+    }
+    return sec_sizes;
+}
+
 // loads pieces from a file into a vector
 // file is structured as one piece per line, in the format <letter><size>
 inline bool loadFromFile(std::string fileName) {
