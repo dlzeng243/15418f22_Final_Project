@@ -169,10 +169,10 @@ int main(int argc, char** argv) {
     int sum = 0;
     for(size_t i = 0; i < pieces_index.size(); i++) {
         // std::cout << pieces_index[i] << "\n";
-        if(pieces_index[i] < 1) {
+        if(pieces_index[i] < 2) {
             sum += 2;
         }
-        else if(pieces_index[i] < 3) {
+        else if(pieces_index[i] < 4) {
             sum += 3;
         }
         // at the moment, only contain up to tetrominos

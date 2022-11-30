@@ -66,7 +66,7 @@ inline bool loadFromFile(std::string fileName) {
 inline void print_board(std::vector<std::vector<int>> b) {
     for(int i = 0; i < height; i++) {
         for(int j = 0; j < width; j++) {
-            std::cout << index_to_pieces[b[i][j]] << " ";
+            std::cout << std::setw(4) <<index_to_pieces[b[i][j]] << " ";
         }
         std::cout << "\n";
     }
