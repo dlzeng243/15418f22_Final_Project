@@ -93,7 +93,7 @@ int main(int argc, char** argv) {
     // read pieces from file
     loadFromFile(file);
     // sort so we have pieces going in consecutive order
-    std::sort(pieces_index.begin(), pieces_index.end());
+    std::sort(pieces_index.rbegin(), pieces_index.rend());
 
     // make sure board can be tiled by the pieces provided mathematically
     int sum = 0;

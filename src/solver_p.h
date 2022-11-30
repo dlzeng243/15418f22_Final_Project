@@ -34,9 +34,9 @@ std::vector<int> pieces_index;
 // dfs to solve the board
 std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces);
 
-std::vector<std::vector<int>> solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces);
+void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces);
 
-std::vector<std::vector<int>> solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces);
+void solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces);
 
 // loads pieces from a file into a vector
 // file is structured as one piece per line, in the format <letter><size>

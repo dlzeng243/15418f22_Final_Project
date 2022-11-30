@@ -1,5 +1,8 @@
 #include "solver_p.h"
 
+bool success[8] = {false,false,false,false,false,false,false,false};
+std::vector<std::vector<int>> solution;
+
 std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     // stack of board states
     std::stack<std::pair<std::vector<std::vector<int>>, size_t>> st;
@@ -80,14 +83,17 @@ want to iterate from w = 0 to w = 8 -> w < width - w_len + 1
 
 */
 
-std::vector<std::vector<int>> solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces) {
-    return solve_recursive_wrapper(board, 0, pieces);
+void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+    solve_recursive_wrapper(board, 0, pieces);
 }
 
-std::vector<std::vector<int>> solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces) {
+void solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces) {
+    if (success[0]) return;
     // if we've reached the end of the pieces
     if(piece_num == pieces.size()) {
-        return board;
+        solution = board;
+        success[0] = true;
+        return;
     }
     int next_piece = pieces[piece_num];
     // check if it's valid (can optimize here)
@@ -142,7 +148,6 @@ std::vector<std::vector<int>> solve_recursive_wrapper(std::vector<std::vector<in
             }
         }
     }
-    return {};
 }
 
 int main(int argc, char** argv) {
@@ -158,7 +163,7 @@ int main(int argc, char** argv) {
     // read pieces from file
     loadFromFile(file);
     // sort so we have pieces going in consecutive order
-    std::sort(pieces_index.begin(), pieces_index.end());
+    std::sort(pieces_index.rbegin(), pieces_index.rend());
 
     // make sure board can be tiled by the pieces provided mathematically
     int sum = 0;
@@ -189,18 +194,17 @@ int main(int argc, char** argv) {
 
     // do dfs to solve
     Timer t;
-    std::vector<std::vector<int>> final_board;
     t.reset();
     #pragma omp parallel
     #pragma omp single
     {
         #pragma omp task mergeable
-        final_board = solve_recursive(board, pieces_index);
+        solve_recursive(board, pieces_index);
     }
     float time = t.elapsed();
     printf("parallel time to solve: %.6fs\n", time);
 
     // print out board
-    print_board(final_board);
+    print_board(solution);
     return 0;
 }
