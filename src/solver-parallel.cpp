@@ -131,15 +131,40 @@ void solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num,
                 }
                 // only way this occurs is if all positions checked are empty
                 if(check == 0) {
+                    std::vector<std::vector<bool>> borderings = std::vector<std::vector<bool>>(h_len+2, std::vector<bool>(w_len+2, false));
                     auto board_copy = board;
                     for(int a = 0; a < h_len; a++) {
                         for(int b = 0; b < w_len; b++) {
                             if(rotation[a][b] == 0) {
                                 continue;
                             }
+                            for(int e = 0; e <= 2; e++)
+                                for(int f = 0; f <= 2; f++) {
+                                    if (e == 1 && f == 1) continue;
+                                    int dx = e - 1;
+                                    int dy = f - 1;
+                                    if (a + dx < 0 || b + dy < 0
+                                        || a + dx >= h_len || b + dy >= w_len
+                                        || rotation[a+dx][b+dy] == 0)
+                                        borderings[a+e][b+f] = true;
+                                }
                             board_copy[h + a][w + b] = rotation[a][b];
                         }
                     }
+                    std::vector<std::pair<int,int>> borders;
+                    for(int i = 0; i < h_len+2; i++) {
+                        for(int j = 0; j < w_len+2; j++) {
+                            if (borderings[i][j] == true && h + i - 1 >= 0 && h+i-1 < height
+                                && w+j-1 >= 0 && w+j-1 < width)
+                                borders.push_back(std::make_pair(h+i-1, w+j-1));
+                        }
+                    }
+                    std::vector<int> sec_sizes = flood_fill(board_copy, borders);
+                    bool valid = true;
+                    for(int x : sec_sizes) {
+                        if (x == 1) valid = false;
+                    }
+                    if (valid)
                     {
                     #pragma omp task
                     solve_recursive_wrapper(board_copy, piece_num+1, pieces);

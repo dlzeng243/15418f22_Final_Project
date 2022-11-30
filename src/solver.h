@@ -45,7 +45,7 @@ std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const st
             sec_sizes.push_back(0);
             continue;
         }
-        if (visited_at(ijs[idx]) != 0) {
+        if (visited_at(ijs[idx]) != -1) {
             sec_sizes.push_back(sec_sizes[visited_at(ijs[idx])]);
             continue;
         }
@@ -67,6 +67,7 @@ std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const st
             st.push(std::make_pair(coords.first, coords.second+1));
             st.push(std::make_pair(coords.first, coords.second-1));
         }
+        sec_sizes.push_back(section_size);
     }
     return sec_sizes;
 }

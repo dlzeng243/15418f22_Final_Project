@@ -78,9 +78,7 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
                                     borders.push_back(std::make_pair(h+i-1, w+j-1));
                             }
                         }
-                        std::cout << "entering flood_fill now" << std::endl;
                         std::vector<int> sec_sizes = flood_fill(board_copy, borders);
-                        std::cout << "exiting flood_fill now" << std::endl;
                         bool valid = true;
                         for(int x : sec_sizes) {
                             if (x == 1) valid = false;

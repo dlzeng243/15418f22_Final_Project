@@ -9,10 +9,14 @@ filepath.pop()
 filepath.append("input")
 files = os.listdir("/".join(filepath))
 
-scenes = (list(map(lambda x: '.'.join(x.split('.')[:-1]), files)))
-print(scenes)
+orig_scenes = (list(map(lambda x: '.'.join(x.split('.')[:-1]), files)))
 
-exclude = ['none']
+exclude = ['none', 'hard2', 'example2', 'example2b']
+scenes = []
+for name in orig_scenes:
+    if name in exclude:
+        continue
+    scenes.append(name)
 
 perfs = [[None] * 2 for _ in range(len(scenes))]
 
@@ -64,4 +68,6 @@ header = '|'.join(f' {x:<15} ' for x in ['Scene Name'])
 print(header)
 print('-' * len(header))
 for scene, perf in zip(scenes, perfs):
+    if scene in exclude:
+        continue
     print('|'.join(f' {x:<15} ' for x in [scene] + perf))
