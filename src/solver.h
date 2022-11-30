@@ -1,6 +1,7 @@
 #ifndef SOLVER_H
 #define SOLVER_H
 
+#include <algorithm>
 #include <cassert>
 #include <cmath>
 #include <cstring>

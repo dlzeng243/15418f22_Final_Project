@@ -20,7 +20,7 @@ scene_names = (
     'simple_IJLO'
 )
 
-perfs = [[None] for _ in range(len(scenes))]
+perfs = [[None] * 2 for _ in range(len(scenes))]
 
 # def compare(actual, ref):
 #     threshold = 1.0 if 'repeat' in actual else 0.1
@@ -55,14 +55,16 @@ for i, (scene_name) in enumerate(scenes):
     cmd = f'./solver-parallel --file {init_file} >> {output_file}'
     ret = os.system(cmd)
     assert ret == 0, 'ERROR -- nbody exited with errors'
-    # t = float(re.findall(
-    #     r'total simulation time: (.*?)s', open(output_file).read())[0])
-    # print(f'total simulation time: {t:.6f}s')
-    # perfs[i][j] = t
+    t_seq = float(re.findall(r'sequential time to solve: (.*?)s', open(output_file).read())[0])
+    t_par = float(re.findall(r'parallel time to solve: (.*?)s', open(output_file).read())[0])
+    print(f'sequential time to solve: {t_seq:.9f}s\n')
+    print(f'parallel time to solve: {t_par:.9f}s\n')
+    perfs[i][0] = t_seq
+    perfs[i][1] = t_par
 
-# print('\n-- Performance Table ---')
-# header = '|'.join(f' {x:<15} ' for x in ['Scene Name'] + version)
-# print(header)
-# print('-' * len(header))
-# for scene, perf in zip(scenes, perfs):
-#     print('|'.join(f' {x:<15} ' for x in [scene[0]] + perf))
+print('\n-- Performance Table ---')
+header = '|'.join(f' {x:<15} ' for x in ['Scene Name'])
+print(header)
+print('-' * len(header))
+for scene, perf in zip(scenes, perfs):
+    print('|'.join(f' {x:<15} ' for x in [scene] + perf))

@@ -126,7 +126,8 @@ int main(int argc, char** argv) {
     Timer t;
     t.reset();
     auto final_board = solve(board, pieces_index);
-    std::cout << "parallel time to solve: " << t.elapsed() << "\n";
+    float time = t.elapsed();
+    printf("parallel time to solve: %.6fs\n", time);
 
     // print out board
     print_board(final_board);
