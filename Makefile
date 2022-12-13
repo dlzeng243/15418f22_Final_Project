@@ -1,11 +1,14 @@
 # Change -O2 to -g if need to debug
 CFLAGS := -std=c++17 -fvisibility=hidden -lpthread -Wall -Wextra -O2 -fopenmp
+# CFLAGS := -std=c++17 -fvisibility=hidden -lpthread -Wall -Wextra -O2
+
 
 CXX = g++
 
 
 HEADERS := src/*.h
 
+# all: solver_sequential_v0
 all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_parallel_v2
 
 solver_sequential_v0: $(HEADERS) src/solver-sequential-v0.cpp

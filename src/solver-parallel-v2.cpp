@@ -188,7 +188,7 @@ int main(int argc, char** argv) {
     assert(width > 0);
     assert(height > 0);
     // read pieces from file
-    loadFromFile(file);
+    load_from_file(file);
     // sort so we have pieces going in consecutive order
     std::sort(pieces_index.rbegin(), pieces_index.rend());
 

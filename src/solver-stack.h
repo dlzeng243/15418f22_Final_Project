@@ -33,6 +33,38 @@ std::vector<int> pieces_index;
 // dfs to solve the board
 std::vector<std::vector<std::string>> solve();
 
+// returns true and modifies board to place piece at row, col if we can place piece
+// otherwise, returns false with no modifications
+inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t col, std::vector<std::vector<int>> &piece) {
+    // check if any spots in the piece size is taken up
+    int h_len = (int)piece.size();
+    int w_len = (int)piece[0].size();
+    // at the moment, just go through the whole subarray
+    // could probably optimize in the future
+    for(int a = 0; a < h_len; a++) {
+        for(int b = 0; b < w_len; b++) {
+            // position is an empty space, so move next
+            if(piece[a][b] == 0) {
+                continue;
+            }
+            // position is not an empty space - need to check if it's filled in the board
+            else if (board[row + a][col + b] > 0) {
+                return false;
+            }
+        }
+    }
+    // only way this occurs is if all positions checked are empty
+    for(int a = 0; a < h_len; a++) {
+        for(int b = 0; b < w_len; b++) {
+            if(piece[a][b] == 0) {
+                continue;
+            }
+            board[row + a][col + b] = piece[a][b];
+        }
+    }
+    return true;
+}
+
 std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const std::vector<std::pair<int,int>> &ijs) {
     int M = board.size(), N = board[0].size();
     std::vector<int> visited(M * N, -1);
@@ -75,7 +107,7 @@ std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const st
 
 // loads pieces from a file into a vector
 // file is structured as one piece per line, in the format <letter><size>
-inline bool loadFromFile(std::string fileName) {
+inline bool load_from_file(std::string fileName) {
     std::ifstream f(fileName);
     // make sure we can read the file
     assert((bool)f && "Cannot open input file");

@@ -31,37 +31,13 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
             // we made rotation, so we know rotation is not degenerate
             int h_len = (int)rotation.size();
             int w_len = (int)rotation[0].size();
+            auto board_copy = curr_board;
             // try placing piece in bottom left spot
             for(int h = 0; h < height - h_len + 1; h++) {
                 for(int w = 0; w < width - w_len + 1; w++) {
-                    // check if any spots in the piece size is taken up
-                    int check = 0;
-                    // at the moment, just go through the whole subarray
-                    // could probably optimize in the future
-                    for(int a = 0; a < h_len; a++) {
-                        for(int b = 0; b < w_len; b++) {
-                            // position is an empty space
-                            if(rotation[a][b] == 0) {
-                                continue;
-                            }
-                            // position is not an empty space - need to check if it's filled in the board
-                            else if (curr_board[h + a][w + b] > 0) {
-                                check++;
-                            }
-                        }
-                    }
-                    // only way this occurs is if all positions checked are empty
-                    if(check == 0) {
-                        auto board_copy = curr_board;
-                        for(int a = 0; a < h_len; a++) {
-                            for(int b = 0; b < w_len; b++) {
-                                if(rotation[a][b] == 0) {
-                                    continue;
-                                }
-                                board_copy[h + a][w + b] = rotation[a][b];
-                            }
-                        }
+                    if(place_piece(board_copy, h, w, rotation)) {
                         st.push(std::make_pair(board_copy, b.second + 1));
+                        board_copy = curr_board;
                     }
                 }
             }
@@ -93,7 +69,7 @@ int main(int argc, char** argv) {
     assert(width > 0);
     assert(height > 0);
     // read pieces from file
-    loadFromFile(file);
+    load_from_file(file);
     // sort so we have pieces going in consecutive order
     std::sort(pieces_index.begin(), pieces_index.end());
 
