@@ -1,4 +1,4 @@
-#include "solver.h"
+#include "solver-stack.h"
 
 // STACK IMPLEMENTATION WITH NOTHING
 

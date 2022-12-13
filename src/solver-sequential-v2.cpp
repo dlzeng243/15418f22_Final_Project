@@ -1,4 +1,4 @@
-#include "solver_p.h"
+#include "solver-recursive.h"
 
 // RECURSIVE IMPLEMENTATION WITH FLOOD FILL
 
