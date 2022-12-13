@@ -6,13 +6,19 @@ CXX = g++
 
 HEADERS := src/*.h
 
-all: solver-sequential solver-parallel
+all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_parallel_v2
 
-solver-sequential: $(HEADERS) src/solver-sequential.cpp
-	$(CXX) -o $@ $(CFLAGS) src/solver-sequential.cpp
+solver_sequential_v0: $(HEADERS) src/solver-sequential-v0.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v0.cpp
 
-solver-parallel: $(HEADERS) src/solver-parallel.cpp
-	$(CXX) -o $@ $(CFLAGS) src/solver-parallel.cpp
+solver_sequential_v1: $(HEADERS) src/solver-sequential-v1.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v1.cpp
+
+solver_sequential_v2: $(HEADERS) src/solver-sequential-v2.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v2.cpp
+
+solver_parallel_v2: $(HEADERS) src/solver-parallel-v2.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-parallel-v2.cpp
 
 clean:
 	rm -rf ./solver*

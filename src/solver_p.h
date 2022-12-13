@@ -1,5 +1,5 @@
-#ifndef SOLVER_H
-#define SOLVER_H
+#ifndef SOLVERP_H
+#define SOLVERP_H
 
 #include <algorithm>
 #include <cassert>
@@ -36,7 +36,7 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
 
 void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces);
 
-void solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces);
+void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_num, const std::vector<int> &pieces);
 
 std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const std::vector<std::pair<int,int>> &ijs) {
     std::vector<int> sec_sizes;
@@ -45,7 +45,7 @@ std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const st
     auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first*N + p.second];};
     auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first*N + p.second] = value;};
 
-    for(int idx = 0; idx < ijs.size(); idx++) {
+    for(size_t idx = 0; idx < ijs.size(); idx++) {
         if (board[ijs[idx].first][ijs[idx].second] != 0) {
             sec_sizes.push_back(0);
             continue;

@@ -1,5 +1,7 @@
 #include "solver.h"
 
+// STACK IMPLEMENTATION WITH FLOOD FILL
+
 std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     // stack of board states
     std::stack<std::pair<std::vector<std::vector<int>>, size_t>> st;

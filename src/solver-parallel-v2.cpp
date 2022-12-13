@@ -1,5 +1,7 @@
 #include "solver_p.h"
 
+// PARALLEL RECURSIVE IMPLEMENTATION WITH FLOOD FILL
+
 bool success[8] = {false,false,false,false,false,false,false,false};
 std::vector<std::vector<int>> solution;
 
@@ -87,7 +89,7 @@ void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> piece
     solve_recursive_wrapper(board, 0, pieces);
 }
 
-void solve_recursive_wrapper(std::vector<std::vector<int>> board, int piece_num, const std::vector<int> &pieces) {
+void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_num, const std::vector<int> &pieces) {
     if (success[0]) return;
     // if we've reached the end of the pieces
     if(piece_num == pieces.size()) {

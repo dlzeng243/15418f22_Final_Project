@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+# Change lines 55 and 60 to test different solvers
+
 import sys
 import os
 import re
@@ -50,12 +52,12 @@ for i, (scene_name) in enumerate(scenes):
     print(f'--- running {scene_name} ---')
     init_file = f'input/{scene_name}.txt'
     output_file = f'output/{scene_name}.txt'
-    cmd = f'./solver-sequential --file {init_file} >> {output_file}'
+    cmd = f'./solver_sequential_v2 --file {init_file} >> {output_file}'
     ret = os.system(cmd)
     assert ret == 0, 'ERROR -- solver-sequential exited with errors'
     t_seq = float(re.findall(r'sequential time to solve: (.*?)s', open(output_file).read())[0])
     print(f'sequential time to solve: {t_seq:.9f}s\n')
-    cmd = f'./solver-parallel --file {init_file} >> {output_file}'
+    cmd = f'./solver_parallel_v2 --file {init_file} >> {output_file}'
     ret = os.system(cmd)
     assert ret == 0, 'ERROR -- solver-parallel exited with errors'
     t_par = float(re.findall(r'parallel time to solve: (.*?)s', open(output_file).read())[0])
