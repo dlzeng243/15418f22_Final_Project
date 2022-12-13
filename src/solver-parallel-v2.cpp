@@ -4,74 +4,6 @@
 
 bool success[8] = {false,false,false,false,false,false,false,false};
 std::vector<std::vector<int>> solution;
-
-std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
-    // stack of board states
-    std::stack<std::pair<std::vector<std::vector<int>>, size_t>> st;
-    st.push(std::make_pair(board, 0));
-    while(!st.empty()) {
-        // get next board
-        auto b = st.top();
-        st.pop();
-        // if we've reached the end of the pieces
-        if(b.second == pieces.size()) {
-            return b.first;
-        }
-        int next_piece = pieces[b.second];
-        auto &curr_board = b.first;
-        // print_board(curr_board);
-        // check if it's valid (can optimize here)
-        // at the moment, don't need to do anything
-
-        // get all possible rotations for a given piece
-        std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece - 1];
-
-        // iterate through the current board and see if we can place each rotation + position in
-        // then put on stack
-        for(size_t i = 0; i < orientations.size(); i++) {
-            // 2d array of the piece orientation
-            std::vector<std::vector<int>> &rotation = orientations[i];
-            // we made rotation, so we know rotation is not degenerate
-            int h_len = (int)rotation.size();
-            int w_len = (int)rotation[0].size();
-            // try placing piece in bottom left spot
-            for(int h = 0; h < height - h_len + 1; h++) {
-                for(int w = 0; w < width - w_len + 1; w++) {
-                    // check if any spots in the piece size is taken up
-                    int check = 0;
-                    // at the moment, just go through the whole subarray
-                    // could probably optimize in the future
-                    for(int a = 0; a < h_len; a++) {
-                        for(int b = 0; b < w_len; b++) {
-                            // position is an empty space
-                            if(rotation[a][b] == 0) {
-                                continue;
-                            }
-                            // position is not an empty space - need to check if it's filled in the board
-                            else if (curr_board[h + a][w + b] > 0) {
-                                check++;
-                            }
-                        }
-                    }
-                    // only way this occurs is if all positions checked are empty
-                    if(check == 0) {
-                        auto board_copy = curr_board;
-                        for(int a = 0; a < h_len; a++) {
-                            for(int b = 0; b < w_len; b++) {
-                                if(rotation[a][b] == 0) {
-                                    continue;
-                                }
-                                board_copy[h + a][w + b] = rotation[a][b];
-                            }
-                        }
-                        st.push(std::make_pair(board_copy, b.second + 1));
-                    }
-                }
-            }
-        }
-    }
-    return {};
-}
 /*
 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 
@@ -147,18 +79,18 @@ void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_n
                                     int dy = f - 1;
                                     if (a + dx < 0 || b + dy < 0
                                         || a + dx >= h_len || b + dy >= w_len
-                                        || rotation[a+dx][b+dy] == 0)
+                                        || rotation[a + dx][b + dy] == 0)
                                         borderings[a+e][b+f] = true;
                                 }
                             board_copy[h + a][w + b] = rotation[a][b];
                         }
                     }
                     std::vector<std::pair<int,int>> borders;
-                    for(int i = 0; i < h_len+2; i++) {
-                        for(int j = 0; j < w_len+2; j++) {
-                            if (borderings[i][j] == true && h + i - 1 >= 0 && h+i-1 < height
-                                && w+j-1 >= 0 && w+j-1 < width)
-                                borders.push_back(std::make_pair(h+i-1, w+j-1));
+                    for(int i = 0; i < h_len + 2; i++) {
+                        for(int j = 0; j < w_len + 2; j++) {
+                            if (borderings[i][j] == true && h + i - 1 >= 0 && h + i - 1 < height
+                                                         && w + j - 1 >= 0 && w + j - 1 < width)
+                                borders.push_back(std::make_pair(h + i - 1, w + j - 1));
                         }
                     }
                     std::vector<int> sec_sizes = flood_fill(board_copy, borders);

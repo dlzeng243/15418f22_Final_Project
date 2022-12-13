@@ -32,7 +32,6 @@ std::vector<int> pieces_index;
 // useful functions:
 
 // dfs to solve the board
-std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces);
 
 void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces);
 
@@ -74,8 +73,8 @@ std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const st
     std::vector<int> sec_sizes;
     int M = board.size(), N = board[0].size();
     std::vector<int> visited(M * N, -1);
-    auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first*N + p.second];};
-    auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first*N + p.second] = value;};
+    auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first * N + p.second];};
+    auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first * N + p.second] = value;};
 
     for(size_t idx = 0; idx < ijs.size(); idx++) {
         if (board[ijs[idx].first][ijs[idx].second] != 0) {

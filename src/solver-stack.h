@@ -68,8 +68,8 @@ inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t
 std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const std::vector<std::pair<int,int>> &ijs) {
     int M = board.size(), N = board[0].size();
     std::vector<int> visited(M * N, -1);
-    auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first*N + p.second];};
-    auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first*N + p.second] = value;};
+    auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first * N + p.second];};
+    auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first * N + p.second] = value;};
 
     std::vector<int> sec_sizes;
     for(size_t idx = 0; idx < ijs.size(); idx++) {

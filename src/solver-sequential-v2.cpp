@@ -147,18 +147,18 @@ void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_n
                                     int dy = f - 1;
                                     if (a + dx < 0 || b + dy < 0
                                         || a + dx >= h_len || b + dy >= w_len
-                                        || rotation[a+dx][b+dy] == 0)
-                                        borderings[a+e][b+f] = true;
+                                        || rotation[a + dx][b + dy] == 0)
+                                        borderings[a + e][b + f] = true;
                                 }
                             board_copy[h + a][w + b] = rotation[a][b];
                         }
                     }
                     std::vector<std::pair<int,int>> borders;
-                    for(int i = 0; i < h_len+2; i++) {
-                        for(int j = 0; j < w_len+2; j++) {
-                            if (borderings[i][j] == true && h + i - 1 >= 0 && h+i-1 < height
-                                && w+j-1 >= 0 && w+j-1 < width)
-                                borders.push_back(std::make_pair(h+i-1, w+j-1));
+                    for(int i = 0; i < h_len + 2; i++) {
+                        for(int j = 0; j < w_len + 2; j++) {
+                            if (borderings[i][j] == true && h + i - 1 >= 0 && h + i - 1 < height
+                                                         && w + j - 1 >= 0 && w + j - 1 < width)
+                                borders.push_back(std::make_pair(h + i - 1, w + j - 1));
                         }
                     }
                     std::vector<int> sec_sizes = flood_fill(board_copy, borders);

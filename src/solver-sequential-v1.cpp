@@ -52,7 +52,7 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
                     }
                     // only way this occurs is if all positions checked are empty
                     if(check == 0) {
-                        std::vector<std::vector<bool>> borderings = std::vector<std::vector<bool>>(h_len+2, std::vector<bool>(w_len+2, false));
+                        std::vector<std::vector<bool>> borderings = std::vector<std::vector<bool>>(h_len+2, std::vector<bool>(w_len + 2, false));
                         auto board_copy = curr_board;
                         for(int a = 0; a < h_len; a++) {
                             for(int b = 0; b < w_len; b++) {
@@ -66,18 +66,18 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
                                         int dy = f - 1;
                                         if (a + dx < 0 || b + dy < 0
                                             || a + dx >= h_len || b + dy >= w_len
-                                            || rotation[a+dx][b+dy] == 0)
-                                            borderings[a+e][b+f] = true;
+                                            || rotation[a + dx][b + dy] == 0)
+                                            borderings[a + e][b + f] = true;
                                     }
                                 board_copy[h + a][w + b] = rotation[a][b];
                             }
                         }
                         std::vector<std::pair<int,int>> borders;
-                        for(int i = 0; i < h_len+2; i++) {
-                            for(int j = 0; j < w_len+2; j++) {
-                                if (borderings[i][j] == true && h + i - 1 >= 0 && h+i-1 < height
-                                    && w+j-1 >= 0 && w+j-1 < width)
-                                    borders.push_back(std::make_pair(h+i-1, w+j-1));
+                        for(int i = 0; i < h_len + 2; i++) {
+                            for(int j = 0; j < w_len + 2; j++) {
+                                if (borderings[i][j] == true && h + i - 1 >= 0 && h + i - 1 < height
+                                                             && w + j - 1 >= 0 && w + j - 1 < width)
+                                    borders.push_back(std::make_pair(h + i - 1, w + j - 1));
                             }
                         }
                         std::vector<int> sec_sizes = flood_fill(board_copy, borders);
