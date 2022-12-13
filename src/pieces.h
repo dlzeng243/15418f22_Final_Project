@@ -47,6 +47,10 @@ std::map<int, std::string> index_to_pieces {
 // tromino I -> 2 -> [[2, 2, 2]] and [[2], [2], [2]]
 // tromino L -> 3 -> [[3, 0], [3, 3]], [[0, 3], [3, 3]], [[3, 3], [0, 3]], [[3, 3], [3, 0]]
 std::vector<std::vector<std::vector<std::vector<int>>>> index_to_rotations{
+    // empty for 0
+    {
+
+    },
     // domino I
     {
         {{1, 1}},

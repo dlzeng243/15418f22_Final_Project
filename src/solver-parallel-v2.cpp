@@ -34,13 +34,13 @@ void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_n
     // at the moment, don't need to do anything
 
     // get all possible rotations for a given piece
-    std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece - 1];
+    const std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece];
 
     // iterate through the current board and see if we can place each rotation + position in
     // then put on stack
     for(size_t i = 0; i < orientations.size(); i++) {
         // 2d array of the piece orientation
-        std::vector<std::vector<int>> &rotation = orientations[i];
+        const std::vector<std::vector<int>> &rotation = orientations[i];
         // we made rotation, so we know rotation is not degenerate
         int h_len = (int)rotation.size();
         int w_len = (int)rotation[0].size();

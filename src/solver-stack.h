@@ -35,7 +35,7 @@ std::vector<std::vector<std::string>> solve();
 
 // returns true and modifies board to place piece at row, col if we can place piece
 // otherwise, returns false with no modifications
-inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t col, std::vector<std::vector<int>> &piece) {
+inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t col, const std::vector<std::vector<int>> &piece) {
     // check if any spots in the piece size is taken up
     int h_len = (int)piece.size();
     int w_len = (int)piece[0].size();
