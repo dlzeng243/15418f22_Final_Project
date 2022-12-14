@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 #include <stack>
-// #include <omp.h>
+#include <omp.h>
 #include "pieces.h"
 #include "timing.h"
 
