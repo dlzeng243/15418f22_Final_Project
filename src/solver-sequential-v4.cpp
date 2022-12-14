@@ -1,11 +1,9 @@
 #include "solver-recursive.h"
 
-// RECURSIVE IMPLEMENTATION BY BLANK SPACES (NO FLOOD FILL)
-
+// RECURSIVE IMPLEMENTATION BY BLANK SPACES + FLOOD FILL
 
 bool success[8] = {false,false,false,false,false,false,false,false};
 std::vector<std::vector<int>> solution;
-
 
 void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     if (success[0]) return;
@@ -29,10 +27,20 @@ void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int>
     }
     for(size_t i = 1; i < pieces.size(); i++) {
         if (pieces[i] == 0) continue;
-        for(const auto &piece : index_to_rotations[i])
+        for(size_t j = 0; j < index_to_rotations[i].size(); j++)
         {
+            const auto &piece = index_to_rotations[i][j];
             int offset = 0; while (piece[0][offset] == 0) offset++;
             if (place_piece(board_copy, row, col-offset, piece)) {
+                auto borders = pieces_borders[i][j];
+                for (auto &pair : borders) {
+                    pair.first += row;
+                    pair.second += col - offset ;
+                }
+                const auto section_sizes = flood_fill(board_copy, borders);
+                for(int x : section_sizes) if (x == 1) {
+                    board_copy = board; continue;
+                }
                 pieces[i]--;
                 solver_by_blank_space(board_copy, pieces);
                 // reset board/state
@@ -59,7 +67,24 @@ int main(int argc, char** argv) {
     std::sort(pieces_index.rbegin(), pieces_index.rend());
 
     // make sure board can be tiled by the pieces provided mathematically
-    check_board();
+    int sum = 0;
+    for(size_t i = 0; i < pieces_index.size(); i++) {
+        // std::cout << pieces_index[i] << "\n";
+        if(pieces_index[i] < 2) {
+            sum += 2;
+        }
+        else if(pieces_index[i] < 4) {
+            sum += 3;
+        }
+        // at the moment, only contain up to tetrominos
+        else if(pieces_index[i] < 11) {
+            sum += 4;
+        }
+        else {
+            sum += 5;
+        }
+    }
+    assert(sum == width * height);
 
     // initialize board
     std::vector<std::vector<int>> board;

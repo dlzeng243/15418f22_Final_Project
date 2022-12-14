@@ -78,7 +78,9 @@ std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const st
     auto visit_loc = [=,&visited](const std::pair<int,int> p, int value) {visited[p.first * N + p.second] = value;};
 
     for(size_t idx = 0; idx < ijs.size(); idx++) {
-        if (board[ijs[idx].first][ijs[idx].second] != 0) {
+        if (ijs[idx].first < 0 || ijs[idx].first >= M
+            || ijs[idx].second < 0 || ijs[idx].second >= N
+            || board[ijs[idx].first][ijs[idx].second] != 0) {
             sec_sizes.push_back(0);
             continue;
         }
