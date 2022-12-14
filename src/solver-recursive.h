@@ -39,12 +39,13 @@ void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_n
 
 // returns true and modifies board to place piece at row, col if we can place piece
 // otherwise, returns false with no modifications
-inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t col, const std::vector<std::vector<int>> &piece) {
+inline bool place_piece(std::vector<std::vector<int>> &board, int row, int col, const std::vector<std::vector<int>> &piece) {
     // check if any spots in the piece size is taken up
     int h_len = (int)piece.size();
     int w_len = (int)piece[0].size();
     // at the moment, just go through the whole subarray
     // could probably optimize in the future
+    if (row < 0 || col < 0 || row + h_len > height || col + w_len > width) return false;
     for(int a = 0; a < h_len; a++) {
         for(int b = 0; b < w_len; b++) {
             // position is an empty space, so move next

@@ -9,7 +9,7 @@ CXX = g++
 HEADERS := src/*.h
 
 # all: script
-all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_parallel_v2 
+all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_sequential_v3 solver_parallel_v2
 
 script: $(HEADERS) src/printer.cpp
 	$(CXX) -o $@ $(CFLAGS) src/printer.cpp
@@ -22,6 +22,9 @@ solver_sequential_v1: $(HEADERS) src/solver-sequential-v1.cpp
 
 solver_sequential_v2: $(HEADERS) src/solver-sequential-v2.cpp
 	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v2.cpp
+
+solver_sequential_v3: $(HEADERS) src/solver-sequential-v3.cpp
+	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v3.cpp
 
 solver_parallel_v2: $(HEADERS) src/solver-parallel-v2.cpp
 	$(CXX) -o $@ $(CFLAGS) src/solver-parallel-v2.cpp
