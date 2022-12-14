@@ -8,8 +8,11 @@ CXX = g++
 
 HEADERS := src/*.h
 
-# all: solver_sequential_v0
-all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_parallel_v2
+# all: script
+all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_parallel_v2 
+
+script: $(HEADERS) src/printer.cpp
+	$(CXX) -o $@ $(CFLAGS) src/printer.cpp
 
 solver_sequential_v0: $(HEADERS) src/solver-sequential-v0.cpp
 	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v0.cpp
