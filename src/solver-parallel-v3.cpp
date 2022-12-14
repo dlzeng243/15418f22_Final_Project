@@ -6,7 +6,6 @@
 bool success[8] = {false,false,false,false,false,false,false,false};
 std::vector<std::vector<int>> solution;
 
-
 void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     if (success[0]) return;
     //find the first row where there's a blank square, and the first blank square in that row
@@ -27,7 +26,7 @@ void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int>
         success[0] = true;
         return;
     }
-    for(int i = 1; i < (int)pieces.size(); i++) {
+    for(int i = 1; i < pieces.size(); i++) {
         if (pieces[i] == 0) continue;
         for(const auto &piece : index_to_rotations[i])
         {

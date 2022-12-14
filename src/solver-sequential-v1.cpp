@@ -1,6 +1,7 @@
 #include "solver-stack.h"
 
 // STACK IMPLEMENTATION WITH FLOOD FILL
+bool success[8] = {false,false,false,false,false,false,false,false};
 
 std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     // stack of board states
@@ -12,6 +13,7 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
         st.pop();
         // if we've reached the end of the pieces
         if(b.second == pieces.size()) {
+            success[0] = true;
             return b.first;
         }
         int next_piece = pieces[b.second];
@@ -157,6 +159,9 @@ int main(int argc, char** argv) {
     printf("sequential time to solve: %.6fs\n", time);
 
     // print out board
-    print_board(final_board);
+    if (success[0])
+        print_board(final_board);
+    else
+        printf("no solution found\n");
     return 0;
 }

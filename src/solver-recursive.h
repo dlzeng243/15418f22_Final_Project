@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 #include <stack>
-#include <omp.h>
+// #include <omp.h>
 #include "pieces.h"
 #include "timing.h"
 
@@ -135,8 +135,8 @@ inline bool load_from_file(std::string fileName) {
 };
 
 inline void print_board(std::vector<std::vector<int>> b) {
-    for(int i = 0; i < height; i++) {
-        for(int j = 0; j < width; j++) {
+    for(size_t i = 0; i < b.size(); i++) {
+        for(size_t j = 0; j < b[0].size(); j++) {
             std::cout << std::setw(4) <<index_to_pieces[b[i][j]] << " ";
         }
         std::cout << "\n";

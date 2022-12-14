@@ -1,6 +1,7 @@
 #include "solver-stack.h"
 
 // STACK IMPLEMENTATION WITH NOTHING
+bool success[8] = {false,false,false,false,false,false,false,false};
 
 std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
     // stack of board states
@@ -12,6 +13,7 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
         st.pop();
         // if we've reached the end of the pieces
         if(b.second == pieces.size()) {
+            success[0] = true;
             return b.first;
         }
         int next_piece = pieces[b.second];
@@ -77,10 +79,10 @@ int main(int argc, char** argv) {
     int sum = 0;
     for(size_t i = 0; i < pieces_index.size(); i++) {
         // std::cout << pieces_index[i] << "\n";
-        if(pieces_index[i] < 1) {
+        if(pieces_index[i] < 2) {
             sum += 2;
         }
-        else if(pieces_index[i] < 3) {
+        else if(pieces_index[i] < 4) {
             sum += 3;
         }
         // at the moment, only contain up to tetrominos
@@ -108,6 +110,9 @@ int main(int argc, char** argv) {
     printf("sequential time to solve: %.6fs\n", time);
 
     // print out board
-    print_board(final_board);
+    if (success[0])
+        print_board(final_board);
+    else
+        printf("no solution found\n");
     return 0;
 }
