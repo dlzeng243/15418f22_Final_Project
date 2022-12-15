@@ -134,6 +134,29 @@ inline bool load_from_file(std::string fileName) {
     return true;
 };
 
+inline void check_board() {
+    int sum = 0;
+    for(size_t i = 0; i < pieces_index.size(); i++) {
+        // std::cout << pieces_index[i] << "\n";
+        if(pieces_index[i] < 2) {
+            sum += 1;
+        }
+        if(pieces_index[i] < 3) {
+            sum += 2;
+        }
+        else if(pieces_index[i] < 5) {
+            sum += 3;
+        }
+        else if(pieces_index[i] < 12) {
+            sum += 4;
+        }
+        else {
+            sum += 5;
+        }
+    }
+    assert(sum == width * height);
+}
+
 inline void print_board(std::vector<std::vector<int>> b) {
     for(size_t i = 0; i < b.size(); i++) {
         for(size_t j = 0; j < b[0].size(); j++) {

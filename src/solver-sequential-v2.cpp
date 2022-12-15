@@ -192,24 +192,7 @@ int main(int argc, char** argv) {
     std::sort(pieces_index.rbegin(), pieces_index.rend());
 
     // make sure board can be tiled by the pieces provided mathematically
-    int sum = 0;
-    for(size_t i = 0; i < pieces_index.size(); i++) {
-        // std::cout << pieces_index[i] << "\n";
-        if(pieces_index[i] < 2) {
-            sum += 2;
-        }
-        else if(pieces_index[i] < 4) {
-            sum += 3;
-        }
-        // at the moment, only contain up to tetrominos
-        else if(pieces_index[i] < 11) {
-            sum += 4;
-        }
-        else {
-            sum += 5;
-        }
-    }
-    assert(sum == width * height);
+    check_board();
 
     // initialize board
     std::vector<std::vector<int>> board;

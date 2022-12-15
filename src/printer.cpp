@@ -1,5 +1,7 @@
 #include "solver-stack.h"
+#include <random>
 
+// print borders into a data structure
 void print_borders() {
     std::cout << "std::vector<std::vector<std::pair<int,int>>> borders {\n";
     std::cout << "\t{ },\n";
@@ -46,6 +48,7 @@ void print_borders() {
     std::cout << "}\n";
 }
 
+// visualize above
 void visual_borders() {
     for(size_t i = 1; i < index_to_rotations.size(); i++) {
         const std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[i];
@@ -69,8 +72,74 @@ void visual_borders() {
     }
 }
 
+// 
+void randomize_board(int h, int w, int seed) {
+    int sum = h * w;
+    // Mersenne Twister random engine:
+    std::mt19937 urbg {static_cast<unsigned int>(seed)};  
+    std::uniform_int_distribution<int> pentamino {1, 29};
+    std::uniform_int_distribution<int> tetramino {1, 11};
+    std::uniform_int_distribution<int> trimino {1, 3};
+    std::uniform_int_distribution<int> domino {1, 2};
+    std::uniform_int_distribution<int> mino {1, 1};
+    std::cout << h << " " << w << "\n";
+    while(sum > 0) {
+        int index = 0;
+        if(sum == 1) {
+            index = mino(urbg);
+        }
+        else if(sum == 2) {
+            index = domino(urbg);
+        }
+        else if(sum == 3) {
+            index = trimino(urbg);
+        }
+        else if(sum == 4) {
+            index = tetramino(urbg);
+        }
+        else {
+            index = pentamino(urbg);
+        }
+        std::cout << index_to_pieces[index] << "\n";
+        if(index < 2) {
+            sum -= 1;
+        }
+        if(index < 3) {
+            sum -= 2;
+        }
+        else if(index < 5) {
+            sum -= 3;
+        }
+        else if(index < 12) {
+            sum -= 4;
+        }
+        else {
+            sum -= 5;
+        }
+    }
+}
+
 int main(int argc, char** argv) {
+    // function to print a data structure for the borders
     // print_borders();
-    visual_borders();
+    
+    // function to visualize the borders outputted from print_borders
+    // visual_borders();
+    
+    // given a width and height, output a random list of pieces that could potentially tile it
+    int seed = 0;
+    for (int i = 1; i < argc; i++) {
+        // sets the file name to read the pieces from
+        if (strcmp(argv[i], "--height") == 0) {
+            height = std::atoi(argv[i + 1]);
+        }
+        else if (strcmp(argv[i], "--width") == 0) {
+            width = std::atoi(argv[i + 1]);
+        }
+        else if (strcmp(argv[i], "--seed") == 0) {
+            seed = std::atoi(argv[i + 1]);
+        }
+    }
+    randomize_board(height, width, seed);
     return 0;
 }
