@@ -1,6 +1,4 @@
 .DS_Store
 solver_*
 output/
-script.cpp
-help.txt
 script

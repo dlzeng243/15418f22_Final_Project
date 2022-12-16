@@ -79,7 +79,7 @@ void randomize_board(int h, int w, int seed) {
     std::mt19937 urbg {static_cast<unsigned int>(seed)};  
     std::uniform_int_distribution<int> pentamino {1, 29};
     std::uniform_int_distribution<int> tetramino {1, 11};
-    std::uniform_int_distribution<int> trimino {1, 3};
+    std::uniform_int_distribution<int> trimino {1, 4};
     std::uniform_int_distribution<int> domino {1, 2};
     std::uniform_int_distribution<int> mino {1, 1};
     std::cout << h << " " << w << "\n";
@@ -104,7 +104,7 @@ void randomize_board(int h, int w, int seed) {
         if(index < 2) {
             sum -= 1;
         }
-        if(index < 3) {
+        else if(index < 3) {
             sum -= 2;
         }
         else if(index < 5) {

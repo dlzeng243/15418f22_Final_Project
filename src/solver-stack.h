@@ -137,7 +137,7 @@ inline void check_board() {
         if(pieces_index[i] < 2) {
             sum += 1;
         }
-        if(pieces_index[i] < 3) {
+        else if(pieces_index[i] < 3) {
             sum += 2;
         }
         else if(pieces_index[i] < 5) {

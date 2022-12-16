@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 #include <stack>
-#include <omp.h>
+// #include <omp.h>
 #include "pieces.h"
 #include "timing.h"
 
@@ -137,11 +137,10 @@ inline bool load_from_file(std::string fileName) {
 inline void check_board() {
     int sum = 0;
     for(size_t i = 0; i < pieces_index.size(); i++) {
-        // std::cout << pieces_index[i] << "\n";
         if(pieces_index[i] < 2) {
             sum += 1;
         }
-        if(pieces_index[i] < 3) {
+        else if(pieces_index[i] < 3) {
             sum += 2;
         }
         else if(pieces_index[i] < 5) {
