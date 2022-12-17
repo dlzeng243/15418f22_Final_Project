@@ -1,0 +1,737 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="2000" height="2000" version="1.1" viewBox="-20 -20 2000 2000" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+ <metadata>
+  <rdf:RDF>
+   <cc:Work rdf:about="">
+    <dc:format>image/svg+xml</dc:format>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:title>Produce by Acme CAD Converter</dc:title>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <title>Produce by Acme CAD Converter</title>
+ <desc>Produce by Acme CAD Converter</desc>
+<g stroke="#000000">
+   <!-- Grid -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>
+
+<!-- star -->
+<polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+    transform="translate(4,3)"/>
+   <!-- plus -->
+	<path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
+		c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
+		c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
+		c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"
+      transform="translate(308.733,71.443), scale(2)" />
+
+   <!-- Arrow -->
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 820">
+   <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+      refX="0" refY="3.5" orient="auto">
+         <polygon points="0 0, 10 3.5, 0 7" />
+      </marker>
+   </defs>
+   <line x1="160" y1="50" x2="200" y2="50" stroke="#000" 
+   stroke-width="2" marker-end="url(#arrowhead)" />
+   </svg>
+
+   <rect x="465" y="-15" width="510" height="270" fill="none" stroke-width="4"/>
+
+</g>
+
+<!-- pieces in box -->
+<g stroke="#000000"
+transform="translate(480,-120)">
+<!-- I piece -->
+    <rect x="0" y="120" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0,180 60,0"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0,240 60,0"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 0,300 60,0"/>
+    <!-- O piece -->
+    <rect x="120" y="240" width="120" height="120" fill="#ffff00" stroke-width="4"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 120,300 120,0"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 180,240 0,120"/>
+    <!-- J piece 1 -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,360 480,360 480,300 360,300 360,240 300,240"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 360,300 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,300 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 300,300 60,0"/>
+    <!-- J piece 2 -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 360,120 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,120 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,180 60,0"/>
+</g>
+
+<!-- stack -->
+
+<g stroke="#000000"
+transform="translate(1250)">
+   <path
+      style="fill:none;stroke:#000000;stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,420 90,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,0 0,425"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 90,0 0,425"/>,
+</g>
+
+<!-- stack input first I -->
+<g stroke="#000000"
+transform="translate(1265,0) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- I1  -->
+   <rect x="0" y="0" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 60,0"/>
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+        transform="translate(4,3)"/>
+</g>
+
+<!-- stack input second I -->
+<g stroke="#000000"
+transform="translate(1265,70) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- I1  -->
+   <rect x="0" y="0" width="240" height="60" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,60"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,60"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,60"/>
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+        transform="translate(4,3)"/>
+</g>
+
+<!-- stack input only O -->
+<g stroke="#000000"
+transform="translate(1265,140) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- O  -->
+   <rect x="0" y="0" width="120" height="120" fill="#ffff00" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 120,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,120"/>
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+        transform="translate(4,3)"/>
+</g>
+
+<!-- stack input first J -->
+<g stroke="#000000"
+transform="translate(1265,210) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- J  -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"
+        transform="translate(-300, -120)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 360,120 0,60"
+        transform="translate(-300, -120)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,120 0,60"
+        transform="translate(-300, -120)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,180 60,0"
+        transform="translate(-300, -120)" />
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+        transform="translate(4,3)"/>
+</g>
+
+<!-- stack input second J -->
+<g stroke="#000000"
+transform="translate(1265,280) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- J  -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"
+        transform="translate(480, 240) rotate(180)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 360,120 0,60"
+        transform="translate(480, 240) rotate(180)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,120 0,60"
+        transform="translate(480, 240) rotate(180)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,180 60,0"
+        transform="translate(480, 240) rotate(180)" />
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+        transform="translate(4,3)"/>
+</g>
+
+<!-- stack input third J -->
+<g stroke="#000000"
+transform="translate(1265,350) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- J  -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"
+        transform="translate(-120, 480) rotate(270)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 360,120 0,60"
+        transform="translate(-120, 480) rotate(270)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,120 0,60"
+        transform="translate(-120, 480) rotate(270)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,180 60,0"
+        transform="translate(-120, 480) rotate(270)" />
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+        10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+        transform="translate(4,3)"/>
+</g>
+
+<g stroke="#000000">
+   <!-- Arrow -->
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 900">
+   <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+      refX="0" refY="3.5" orient="auto">
+         <polygon points="0 0, 10 3.5, 0 7" />
+      </marker>
+   </defs>
+   <line x1="135" y1="120" x2="-270" y2="180" stroke="#000" 
+   stroke-width="2" marker-end="url(#arrowhead)" />
+   </svg>
+</g>
+
+<g stroke="#000000"
+transform="translate(0, 450)">
+   <!-- Grid -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>
+
+   <!-- I piece -->
+   <rect x="0" y="0" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 60,0"/>
+
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+    transform="translate(64,3)"/>
+   <!-- plus -->
+	<path d="M41.267,18.557H26.832V4.134C26.832,1.851,24.99,0,22.707,0c-2.283,0-4.124,1.851-4.124,4.135v14.432H4.141
+		c-2.283,0-4.139,1.851-4.138,4.135c-0.001,1.141,0.46,2.187,1.207,2.934c0.748,0.749,1.78,1.222,2.92,1.222h14.453V41.27
+		c0,1.142,0.453,2.176,1.201,2.922c0.748,0.748,1.777,1.211,2.919,1.211c2.282,0,4.129-1.851,4.129-4.133V26.857h14.435
+		c2.283,0,4.134-1.867,4.133-4.15C45.399,20.425,43.548,18.557,41.267,18.557z"
+      transform="translate(308.733,71.443), scale(2)" />
+
+   <!-- Arrow -->
+   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 285 820">
+   <defs>
+      <marker id="arrowhead" markerWidth="10" markerHeight="7" 
+      refX="0" refY="3.5" orient="auto">
+         <polygon points="0 0, 10 3.5, 0 7" />
+      </marker>
+   </defs>
+   <line x1="120" y1="50" x2="200" y2="50" stroke="#000" 
+   stroke-width="2" marker-end="url(#arrowhead)" />
+   </svg>
+
+   <rect x="465" y="-15" width="390" height="270" fill="none" stroke-width="4"/>
+</g>
+
+<!-- pieces in box -->
+<g stroke="#000000"
+transform="translate(360,330)">
+    <!-- O piece -->
+    <rect x="120" y="240" width="120" height="120" fill="#ffff00" stroke-width="4"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 120,300 120,0"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 180,240 0,120"/>
+    <!-- J piece 1 -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,360 480,360 480,300 360,300 360,240 300,240"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 360,300 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,300 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 300,300 60,0"/>
+    <!-- J piece 2 -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 360,120 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,120 0,60"/>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="m 420,180 60,0"/>
+</g>
+
+
+<!-- stack -->
+<g stroke="#000000"
+transform="translate(1250, 450)">
+   <path
+      style="fill:none;stroke:#000000;stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,360 90,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,0 0,365"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:10px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 90,0 0,365"/>,
+</g>
+
+<!-- stack input 1 -->
+<g stroke="#000000"
+transform="translate(1265,660) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- I1  -->
+   <rect x="0" y="0" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 60,0"/>
+   <!-- J  -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"
+        transform="translate(-60, 480) rotate(270)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 360,120 0,60"
+        transform="translate(-60, 480) rotate(270)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,120 0,60"
+        transform="translate(-60, 480) rotate(270)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,180 60,0"
+        transform="translate(-60, 480) rotate(270)" />
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+    transform="translate(64,3)"/>
+</g>
+
+<!-- stack input 2 -->
+<g stroke="#000000"
+transform="translate(1265,590) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- I1  -->
+   <rect x="0" y="0" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 60,0"/>
+   <!-- J  -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"
+        transform="translate(540, 240) rotate(180)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 360,120 0,60"
+        transform="translate(540, 240) rotate(180)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,120 0,60"
+        transform="translate(540, 240) rotate(180)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,180 60,0"
+        transform="translate(540, 240) rotate(180)" />
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+    transform="translate(64,3)"/>
+</g>
+
+<!-- stack J1 -->
+<g stroke="#000000"
+transform="translate(1265,520) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- I1  -->
+   <rect x="0" y="0" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 60,0"/>
+   <!-- J  -->
+    <polygon fill="#0000FF" fill-opacity="1" stroke="#000000" stroke-width="4"
+        points="300,180 420,180 420,240 480,240 480,180 480,120 360,120 300,120"
+        transform="translate(-240, -120)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 360,120 0,60"
+        transform="translate(-240, -120)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,120 0,60"
+        transform="translate(-240, -120)" />
+    <path
+        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+        d="m 420,180 60,0"
+        transform="translate(-240, -120)" />
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+    transform="translate(64,3)"/>
+</g>
+
+<!-- O piece -->
+<g stroke="#000000"
+transform="translate(1265,450) scale(0.25)">
+   <!-- grid1 -->
+   <rect x="0" y="0" width="240" height="240" fill="#ffffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 240,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,240"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 180,0 0,240"/>,
+   <!-- I1  -->
+   <rect x="0" y="0" width="60" height="240" fill="#00ffff" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,60 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,120 60,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 0,180 60,0"/>
+   <!-- O piece -->
+   <rect x="60" y="0" width="120" height="120" fill="#ffff00" stroke-width="4"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 60,60 120,0"/>
+   <path
+      style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+      d="m 120,0 0,120"/>
+    <!-- star -->
+    <polygon style="fill:#EFCE4A;" points="26.934,1.318 35.256,18.182 53.867,20.887 40.4,34.013 43.579,52.549 26.934,43.798 
+	10.288,52.549 13.467,34.013 0,20.887 18.611,18.182 "
+    transform="translate(64,3)"/>
+</g>
+
+<g stroke="#000000"
+transform="translate(1250,740)">
+  <circle cx="45" cy="40" r="10" />
+  <circle cx="45" cy="10" r="10" />
+</g>
+
+
+
+<g stroke="#000000"
+transform="translate(600,840)">
+  <circle cx="50" cy="-50" r="20" />
+  <circle cx="50" cy="150" r="20" />
+  <circle cx="50" cy="50" r="20" />
+
+</g>
+
+</svg>

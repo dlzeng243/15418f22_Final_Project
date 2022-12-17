@@ -105,5 +105,6 @@
         "cuchar": "cpp",
         "source_location": "cpp",
         "syncstream": "cpp"
-    }
+    },
+    "svg.preview.background": "custom"
 }
