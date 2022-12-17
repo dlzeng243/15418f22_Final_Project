@@ -7,9 +7,9 @@ void print_borders() {
     std::cout << "\t{ },\n";
     for(size_t i = 1; i < index_to_rotations.size(); i++) {
         std::cout << "\t{\n";
-        const std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[i];
+        const std::vector<BoardTiling> &orientations = index_to_rotations[i];
         for(size_t j = 0; j < orientations.size(); j++) {
-            const std::vector<std::vector<int>> &piece = orientations[j];
+            const BoardTiling &piece = orientations[j];
             int h_len = (int)piece.size();
             int w_len = (int)piece[0].size();
             std::vector<std::vector<bool>> borderings = std::vector<std::vector<bool>>(h_len+2, std::vector<bool>(w_len + 2, false));
@@ -51,12 +51,12 @@ void print_borders() {
 // visualize above
 void visual_borders() {
     for(size_t i = 1; i < index_to_rotations.size(); i++) {
-        const std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[i];
+        const std::vector<BoardTiling> &orientations = index_to_rotations[i];
         for(size_t j = 0; j < orientations.size(); j++) {
-            const std::vector<std::vector<int>> &piece = orientations[j];
+            const BoardTiling &piece = orientations[j];
             int h_len = (int)piece.size();
             int w_len = (int)piece[0].size();
-            std::vector<std::vector<int>> borderings = std::vector<std::vector<int>>(h_len+2, std::vector<int>(w_len + 2, 0));
+            BoardTiling borderings = BoardTiling(h_len+2, std::vector<char>(w_len + 2, 0));
             std::vector<std::pair<int,int>> bi = pieces_borders[i][j];
             for(size_t k = 0; k < bi.size(); k++) {
                 borderings[bi[k].first + 1][bi[k].second + 1] = 1;

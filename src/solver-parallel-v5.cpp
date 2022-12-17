@@ -35,9 +35,14 @@ void solver_by_blank_space(BoardTiling board, std::vector<int> pieces) {
             int offset = 0; while (piece[0][offset] == 0) offset++;
             if (place_piece(board, row, col-offset, piece)) {
                 pieces[i]--;
+                if (row < 2)
                 {
-                    #pragma omp task final(row >= width-2)
                     solver_by_blank_space(board, pieces);
+                }
+                else
+                {
+                    #pragma omp task
+                    solver_sequential(board, pieces);
                 }
                 // reset board/state
                 pieces[i]++;
@@ -46,6 +51,7 @@ void solver_by_blank_space(BoardTiling board, std::vector<int> pieces) {
         }
     }
 }
+
 
 int main(int argc, char** argv) {
     // read command line arguments
@@ -59,8 +65,6 @@ int main(int argc, char** argv) {
     assert(height > 0);
     // read pieces from file
     load_from_file(file);
-    // sort so we have pieces going in consecutive order
-    std::sort(pieces_index.rbegin(), pieces_index.rend());
 
     // make sure board can be tiled by the pieces provided mathematically
     check_board();

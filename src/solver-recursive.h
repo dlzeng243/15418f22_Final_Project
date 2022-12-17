@@ -23,6 +23,8 @@
 int width = 10;
 int height = 4;
 bool switched = false;
+extern bool success[8];
+extern BoardTiling solution;
 
 // file to load
 std::string file = "";
@@ -77,6 +79,48 @@ inline void unplace_piece(BoardTiling &board, int row, int col, const BoardTilin
             board[row + a][col + b] ^= piece[a][b];
         }
     }
+}
+
+void solver_sequential_wrapper(BoardTiling &board, std::vector<int> &pieces) {
+    if (success[0]) return;
+    //find the first row where there's a blank square, and the first blank square in that row
+    int row = -1;
+    int col = -1;
+    for(int r = 0; r < height; r++) {
+        for(int c = 0; c < width; c++) {
+            if (board[r][c] != 0) continue;
+            //put a piece in that spot.
+            row = r; col = c;
+            break;
+        }
+        if (row != -1) break;
+    }
+    if (row == -1) {
+        ///TODO: put a lock around this section
+        if (!success[0]) {
+            solution = board;
+            success[0] = true;
+        }
+    }
+    //iterate backwards starting with bigger pieces
+    else for(size_t i = pieces.size() - 1; i >= 1; i--) {
+        if (pieces[i] == 0) continue;
+        for(const auto &piece : index_to_rotations[i])
+        {
+            int offset = 0; while (piece[0][offset] == 0) offset++;
+            if (place_piece(board, row, col-offset, piece)) {
+                pieces[i]--;
+                solver_sequential_wrapper(board, pieces);
+                // reset board/state
+                pieces[i]++;
+                unplace_piece(board, row, col-offset, piece);
+            }
+        }
+    }
+}
+
+void solver_sequential(BoardTiling board, std::vector<int> pieces) {
+    solver_sequential_wrapper(board, pieces);
 }
 
 std::vector<int> flood_fill(const BoardTiling &board, const std::vector<std::pair<int,int>> &ijs) {

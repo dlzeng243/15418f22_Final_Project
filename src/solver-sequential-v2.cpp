@@ -93,12 +93,12 @@ void solve_recursive_wrapper(BoardTiling board, size_t piece_num, const std::vec
                                 borders.push_back(std::make_pair(h + i - 1, w + j - 1));
                         }
                     }
-                    std::vector<int> sec_sizes = flood_fill(board_copy, borders);
-                    bool valid = true;
-                    for(int x : sec_sizes) {
-                        if (x == 1) valid = false;
-                    }
-                    if (valid)
+                    // std::vector<int> sec_sizes = flood_fill(board_copy, borders);
+                    // bool valid = true;
+                    // for(int x : sec_sizes) {
+                    //     if (x == 1) valid = false;
+                    // }
+                    // if (valid)
                     {
                     solve_recursive_wrapper(board_copy, piece_num+1, pieces);
                     }
@@ -141,6 +141,9 @@ int main(int argc, char** argv) {
     printf("sequential time to solve: %.6fs\n", time);
 
     // print out board
-    print_board(solution);
+    if (success[0])
+        print_board(solution);
+    else
+        printf("no solution found\n");
     return 0;
 }
