@@ -55,10 +55,13 @@ void solver_by_blank_space(BoardTiling board, std::vector<int> pieces) {
 
 int main(int argc, char** argv) {
     // read command line arguments
+    int nThreads = 8;
     for (int i = 1; i < argc; i++) {
         // sets the file name to read the pieces from
         if (strcmp(argv[i], "--file") == 0)
             file = argv[i + 1];
+        else if(strcmp(argv[i], "-n") == 0)
+            nThreads = atoi(argv[i + 1]);
     }
     // not a degenerate board
     assert(width > 0);
@@ -79,14 +82,14 @@ int main(int argc, char** argv) {
     std::vector<int> piece_counts(index_to_pieces.size(), 0);
     for(int x : pieces_index) piece_counts[x]++;
 
-    for(int i = 0; i < 256; i++) {
-        count_sols[i] = 0;
-        thread_times[i] = 0;
+    for(int i = 0; i < nThreads; i++) {
+        count_sols[i*8] = 0;
+        thread_times[i*8] = 0;
     }
     // do dfs to solve
     Timer t;
     t.reset();
-    #pragma omp parallel
+    #pragma omp parallel num_threads(nThreads)
     #pragma omp single
     {
         #pragma omp task mergeable
@@ -95,7 +98,7 @@ int main(int argc, char** argv) {
     float time = t.elapsed();
     printf("parallel time to solve: %.6fs\n", time);
 
-    for(int i = 0; i < 8; i++) {
+    for(int i = 0; i < nThreads; i++) {
         num_sols += count_sols[8*i];
         printf("Thread %d: %f\n", i, thread_times[i*8]);
     }

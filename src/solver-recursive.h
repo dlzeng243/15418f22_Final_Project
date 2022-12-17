@@ -26,10 +26,10 @@ bool switched = false;
 extern bool success[8];
 extern BoardTiling solution;
 long long num_sols = 0;
-long long count_sols[256];
+long long count_sols[1024];
 
-double thread_times[256];
-Timer timers[256];
+double thread_times[1024];
+Timer timers[1024];
 
 // file to load
 std::string file = "";
