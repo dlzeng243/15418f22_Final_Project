@@ -3,11 +3,11 @@
 // RECURSIVE IMPLEMENTATION WITH FLOOD FILL
 
 bool success[8] = {false,false,false,false,false,false,false,false};
-std::vector<std::vector<int>> solution;
+BoardTiling solution;
 
-std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+BoardTiling solve(BoardTiling board, std::vector<int> pieces) {
     // stack of board states
-    std::stack<std::pair<std::vector<std::vector<int>>, size_t>> st;
+    std::stack<std::pair<BoardTiling, size_t>> st;
     st.push(std::make_pair(board, 0));
     while(!st.empty()) {
         // get next board
@@ -24,13 +24,13 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
         // at the moment, don't need to do anything
 
         // get all possible rotations for a given piece
-        std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece];
+        std::vector<BoardTiling> &orientations = index_to_rotations[next_piece];
 
         // iterate through the current board and see if we can place each rotation + position in
         // then put on stack
         for(size_t i = 0; i < orientations.size(); i++) {
             // 2d array of the piece orientation
-            std::vector<std::vector<int>> &rotation = orientations[i];
+            BoardTiling &rotation = orientations[i];
             // we made rotation, so we know rotation is not degenerate
             int h_len = (int)rotation.size();
             int w_len = (int)rotation[0].size();
@@ -85,11 +85,11 @@ want to iterate from w = 0 to w = 8 -> w < width - w_len + 1
 
 */
 
-void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+void solve_recursive(BoardTiling board, std::vector<int> pieces) {
     solve_recursive_wrapper(board, 0, pieces);
 }
 
-void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_num, const std::vector<int> &pieces) {
+void solve_recursive_wrapper(BoardTiling board, size_t piece_num, const std::vector<int> &pieces) {
     if (success[0]) return;
     // if we've reached the end of the pieces
     if(piece_num == pieces.size()) {
@@ -102,13 +102,13 @@ void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_n
     // at the moment, don't need to do anything
 
     // get all possible rotations for a given piece
-    const std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece];
+    const std::vector<BoardTiling> &orientations = index_to_rotations[next_piece];
 
     // iterate through the current board and see if we can place each rotation + position in
     // then put on stack
     for(size_t i = 0; i < orientations.size(); i++) {
         // 2d array of the piece orientation
-        const std::vector<std::vector<int>> &rotation = orientations[i];
+        const BoardTiling &rotation = orientations[i];
         // we made rotation, so we know rotation is not degenerate
         int h_len = (int)rotation.size();
         int w_len = (int)rotation[0].size();
@@ -195,7 +195,7 @@ int main(int argc, char** argv) {
     check_board();
 
     // initialize board
-    std::vector<std::vector<int>> board;
+    BoardTiling board;
     board.resize(height);
     for(int i = 0; i < height; i++) {
         board[i].resize(width);

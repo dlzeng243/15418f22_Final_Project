@@ -35,7 +35,7 @@ std::vector<std::vector<std::string>> solve();
 
 // returns true and modifies board to place piece at row, col if we can place piece
 // otherwise, returns false with no modifications
-inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t col, const std::vector<std::vector<int>> &piece) {
+inline bool place_piece(BoardTiling &board, size_t row, size_t col, const BoardTiling &piece) {
     // check if any spots in the piece size is taken up
     int h_len = (int)piece.size();
     int w_len = (int)piece[0].size();
@@ -65,7 +65,7 @@ inline bool place_piece(std::vector<std::vector<int>> &board, size_t row, size_t
     return true;
 }
 
-std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const std::vector<std::pair<int,int>> &ijs) {
+std::vector<int> flood_fill(const BoardTiling &board, const std::vector<std::pair<int,int>> &ijs) {
     int M = board.size(), N = board[0].size();
     std::vector<int> visited(M * N, -1);
     auto visited_at = [=,&visited](const std::pair<int,int> p) {return visited[p.first * N + p.second];};
@@ -153,7 +153,7 @@ inline void check_board() {
     assert(sum == width * height);
 }
 
-inline void print_board(std::vector<std::vector<int>> b) {
+inline void print_board(BoardTiling b) {
     for(size_t i = 0; i < b.size(); i++) {
         for(size_t j = 0; j < b[0].size(); j++) {
             std::cout  << std::setw(4) << index_to_pieces[b[i][j]] << " ";

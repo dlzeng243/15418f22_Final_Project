@@ -3,9 +3,9 @@
 // STACK IMPLEMENTATION WITH NOTHING
 bool success[8] = {false,false,false,false,false,false,false,false};
 
-std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+BoardTiling solve(BoardTiling board, std::vector<int> pieces) {
     // stack of board states
-    std::stack<std::pair<std::vector<std::vector<int>>, size_t>> st;
+    std::stack<std::pair<BoardTiling, size_t>> st;
     st.push(std::make_pair(board, 0));
     while(!st.empty()) {
         // get next board
@@ -23,13 +23,13 @@ std::vector<std::vector<int>> solve(std::vector<std::vector<int>> board, std::ve
         // at the moment, don't need to do anything
 
         // get all possible rotations for a given piece
-        const std::vector<std::vector<std::vector<int>>> &orientations = index_to_rotations[next_piece];
+        const std::vector<BoardTiling> &orientations = index_to_rotations[next_piece];
 
         // iterate through the current board and see if we can place each rotation + position in
         // then put on stack
         for(size_t i = 0; i < orientations.size(); i++) {
             // 2d array of the piece orientation
-            const std::vector<std::vector<int>> &rotation = orientations[i];
+            const BoardTiling &rotation = orientations[i];
             // we made rotation, so we know rotation is not degenerate
             int h_len = (int)rotation.size();
             int w_len = (int)rotation[0].size();
@@ -79,7 +79,7 @@ int main(int argc, char** argv) {
     check_board();
 
     // initialize board
-    std::vector<std::vector<int>> board;
+    BoardTiling board;
     board.resize(height);
     for(int i = 0; i < height; i++) {
         board[i].resize(width);

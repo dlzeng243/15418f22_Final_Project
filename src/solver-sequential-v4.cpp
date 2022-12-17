@@ -3,9 +3,9 @@
 // RECURSIVE IMPLEMENTATION BY BLANK SPACES + FLOOD FILL
 
 bool success[8] = {false,false,false,false,false,false,false,false};
-std::vector<std::vector<int>> solution;
+BoardTiling solution;
 
-void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+void solver_by_blank_space(BoardTiling board, std::vector<int> pieces) {
     if (success[0]) return;
     //find the first row where there's a blank square, and the first blank square in that row
     auto board_copy = board;
@@ -87,7 +87,7 @@ int main(int argc, char** argv) {
     assert(sum == width * height);
 
     // initialize board
-    std::vector<std::vector<int>> board;
+    BoardTiling board;
     board.resize(height);
     for(int i = 0; i < height; i++) {
         board[i].resize(width);

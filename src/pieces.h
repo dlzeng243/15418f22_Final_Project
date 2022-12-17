@@ -5,6 +5,8 @@
 #include <map>
 #include <vector>
 
+typedef std::vector<std::vector<char>> BoardTiling;
+
 // maps each piece to a specific index
 // ZERO INDEX IS EMPTY
 std::map<std::string, int> pieces_to_index {
@@ -50,7 +52,7 @@ std::map<int, std::string> index_to_pieces {
 // domino I -> 1 -> [[1, 1]] and [[1], [1]]
 // tromino I -> 2 -> [[2, 2, 2]] and [[2], [2], [2]]
 // tromino L -> 3 -> [[3, 0], [3, 3]], [[0, 3], [3, 3]], [[3, 3], [0, 3]], [[3, 3], [3, 0]]
-std::vector<std::vector<std::vector<std::vector<int>>>> index_to_rotations{
+std::vector<std::vector<BoardTiling>> index_to_rotations{
     // empty for 0
     {
 

@@ -12,7 +12,7 @@
 #include <string>
 #include <vector>
 #include <stack>
-// #include <omp.h>
+#include <omp.h>
 #include "pieces.h"
 #include "timing.h"
 
@@ -22,6 +22,7 @@
 // defaults to a tetris board
 int width = 10;
 int height = 4;
+bool switched = false;
 
 // file to load
 std::string file = "";
@@ -33,13 +34,13 @@ std::vector<int> pieces_index;
 
 // dfs to solve the board
 
-void solve_recursive(std::vector<std::vector<int>> board, std::vector<int> pieces);
+void solve_recursive(BoardTiling board, std::vector<int> pieces);
 
-void solve_recursive_wrapper(std::vector<std::vector<int>> board, size_t piece_num, const std::vector<int> &pieces);
+void solve_recursive_wrapper(BoardTiling board, size_t piece_num, const std::vector<int> &pieces);
 
 // returns true and modifies board to place piece at row, col if we can place piece
 // otherwise, returns false with no modifications
-inline bool place_piece(std::vector<std::vector<int>> &board, int row, int col, const std::vector<std::vector<int>> &piece) {
+inline bool place_piece(BoardTiling &board, int row, int col, const BoardTiling &piece) {
     // check if any spots in the piece size is taken up
     int h_len = (int)piece.size();
     int w_len = (int)piece[0].size();
@@ -61,16 +62,24 @@ inline bool place_piece(std::vector<std::vector<int>> &board, int row, int col, 
     // only way this occurs is if all positions checked are empty
     for(int a = 0; a < h_len; a++) {
         for(int b = 0; b < w_len; b++) {
-            if(piece[a][b] == 0) {
-                continue;
-            }
-            board[row + a][col + b] = piece[a][b];
+            board[row + a][col + b] ^= piece[a][b];
         }
     }
     return true;
 }
 
-std::vector<int> flood_fill(const std::vector<std::vector<int>> &board, const std::vector<std::pair<int,int>> &ijs) {
+//removes a piece from the board. assumes it exists already.
+inline void unplace_piece(BoardTiling &board, int row, int col, const BoardTiling &piece) {
+    int h_len = (int)piece.size();
+    int w_len = (int)piece[0].size();
+    for(int a = 0; a < h_len; a++) {
+        for(int b = 0; b < w_len; b++) {
+            board[row + a][col + b] ^= piece[a][b];
+        }
+    }
+}
+
+std::vector<int> flood_fill(const BoardTiling &board, const std::vector<std::pair<int,int>> &ijs) {
     std::vector<int> sec_sizes;
     int M = board.size(), N = board[0].size();
     std::vector<int> visited(M * N, -1);
@@ -124,6 +133,12 @@ inline bool load_from_file(std::string fileName) {
     size_t pos = line.find(" ");
     height = atoi((line.substr(0, pos).c_str()));
     width = atoi((line.substr(pos + 1, line.size() - pos).c_str()));
+    if ((switched = (height < width))) {
+        int tmp = width;
+        width = height;
+        height = tmp;
+    }
+    assert(width <= height);
     // std::cout << "height: " << height << " width: " << width << "\n";
     // rest of the file are pieces
     while (std::getline(f, line)) {
@@ -158,14 +173,25 @@ inline void check_board() {
     assert(sum == width * height);
 }
 
-inline void print_board(std::vector<std::vector<int>> b) {
-    for(size_t i = 0; i < b.size(); i++) {
-        for(size_t j = 0; j < b[0].size(); j++) {
-            std::cout << std::setw(4) <<index_to_pieces[b[i][j]] << " ";
+inline void print_board(const BoardTiling &b) {
+    if (!switched) {
+        for(size_t i = 0; i < b.size(); i++) {
+            for(size_t j = 0; j < b[0].size(); j++) {
+                std::cout << std::setw(4) <<index_to_pieces[b[i][j]] << " ";
+            }
+            std::cout << "\n";
         }
         std::cout << "\n";
     }
-    std::cout << "\n";
+    else {
+        for(size_t j = 0; j < b[0].size(); j++) {
+            for(size_t i = 0; i < b.size(); i++) {
+                std::cout << std::setw(4) <<index_to_pieces[b[i][j]] << " ";
+            }
+            std::cout << "\n";
+        }
+        std::cout << "\n";
+    }
 }
 
 #endif

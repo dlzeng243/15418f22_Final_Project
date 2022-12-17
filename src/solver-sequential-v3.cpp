@@ -4,18 +4,17 @@
 
 
 bool success[8] = {false,false,false,false,false,false,false,false};
-std::vector<std::vector<int>> solution;
+BoardTiling solution;
 
 
-void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int> pieces) {
+void solver_by_blank_space(BoardTiling board, std::vector<int> pieces) {
     if (success[0]) return;
     //find the first row where there's a blank square, and the first blank square in that row
-    auto board_copy = board;
     int row = -1;
     int col = -1;
     for(int r = 0; r < height; r++) {
         for(int c = 0; c < width; c++) {
-            if (board_copy[r][c] != 0) continue;
+            if (board[r][c] != 0) continue;
             //put a piece in that spot.
             row = r; col = c;
             break;
@@ -32,12 +31,12 @@ void solver_by_blank_space(std::vector<std::vector<int>> board, std::vector<int>
         for(const auto &piece : index_to_rotations[i])
         {
             int offset = 0; while (piece[0][offset] == 0) offset++;
-            if (place_piece(board_copy, row, col-offset, piece)) {
+            if (place_piece(board, row, col-offset, piece)) {
                 pieces[i]--;
-                solver_by_blank_space(board_copy, pieces);
+                solver_by_blank_space(board, pieces);
                 // reset board/state
                 pieces[i]++;
-                board_copy = board;
+                unplace_piece(board, row, col-offset, piece);
             }
         }
     }
@@ -62,7 +61,7 @@ int main(int argc, char** argv) {
     check_board();
 
     // initialize board
-    std::vector<std::vector<int>> board;
+    BoardTiling board;
     board.resize(height);
     for(int i = 0; i < height; i++) {
         board[i].resize(width);
