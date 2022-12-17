@@ -25,6 +25,11 @@ int height = 4;
 bool switched = false;
 extern bool success[8];
 extern BoardTiling solution;
+long long num_sols = 0;
+long long count_sols[256];
+
+double thread_times[256];
+Timer timers[256];
 
 // file to load
 std::string file = "";
@@ -81,6 +86,46 @@ inline void unplace_piece(BoardTiling &board, int row, int col, const BoardTilin
     }
 }
 
+void counting_sequential_wrapper(BoardTiling &board, std::vector<int> &pieces, bool initial=false) {
+    //find the first row where there's a blank square, and the first blank square in that row
+    if (initial) timers[8 * omp_get_thread_num()].reset();
+    int row = -1;
+    int col = -1;
+    for(int r = 0; r < height; r++) {
+        for(int c = 0; c < width; c++) {
+            if (board[r][c] != 0) continue;
+            //put a piece in that spot.
+            row = r; col = c;
+            break;
+        }
+        if (row != -1) break;
+    }
+    if (row == -1) {
+        ///TODO: put a lock around this section
+        if (!success[0]) {
+            solution = board;
+            success[0] = true;
+        }
+        count_sols[8 * omp_get_thread_num()]++;
+    }
+    //iterate backwards starting with bigger pieces
+    else for(size_t i = pieces.size() - 1; i >= 1; i--) {
+        if (pieces[i] == 0) continue;
+        for(const auto &piece : index_to_rotations[i])
+        {
+            int offset = 0; while (piece[0][offset] == 0) offset++;
+            if (place_piece(board, row, col-offset, piece)) {
+                pieces[i]--;
+                counting_sequential_wrapper(board, pieces);
+                // reset board/state
+                pieces[i]++;
+                unplace_piece(board, row, col-offset, piece);
+            }
+        }
+    }
+    if (initial) thread_times[8 * omp_get_thread_num()] += timers[8 * omp_get_thread_num()].elapsed();
+}
+
 void solver_sequential_wrapper(BoardTiling &board, std::vector<int> &pieces) {
     if (success[0]) return;
     //find the first row where there's a blank square, and the first blank square in that row
@@ -119,8 +164,9 @@ void solver_sequential_wrapper(BoardTiling &board, std::vector<int> &pieces) {
     }
 }
 
-void solver_sequential(BoardTiling board, std::vector<int> pieces) {
-    solver_sequential_wrapper(board, pieces);
+void solver_sequential(BoardTiling board, std::vector<int> pieces, bool counting=false) {
+    if (counting) counting_sequential_wrapper(board, pieces, true);
+    else solver_sequential_wrapper(board, pieces);
 }
 
 std::vector<int> flood_fill(const BoardTiling &board, const std::vector<std::pair<int,int>> &ijs) {

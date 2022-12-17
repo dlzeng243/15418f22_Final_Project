@@ -8,8 +8,8 @@ CXX = g++
 
 HEADERS := src/*.h
 
-all: script
-# all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_sequential_v3 solver_sequential_v4 solver_sequential_v5 solver_parallel_v2 solver_parallel_v3 solver_parallel_v5
+# all: script
+all: solver_sequential_v0 solver_sequential_v1 solver_sequential_v2 solver_sequential_v3 solver_sequential_v4 solver_sequential_v5 counter_sequential_v3 counter_sequential_v5 solver_parallel_v2 solver_parallel_v3 solver_parallel_v5 counter_parallel_v3 counter_parallel_v5
 
 script: $(HEADERS) src/printer.cpp
 	$(CXX) -o $@ $(CFLAGS) src/printer.cpp
@@ -32,6 +32,12 @@ solver_sequential_v4: $(HEADERS) src/solver-sequential-v4.cpp
 solver_sequential_v5: $(HEADERS) src/solver-sequential-v5.cpp
 	$(CXX) -o $@ $(CFLAGS) src/solver-sequential-v5.cpp
 
+counter_sequential_v3: $(HEADERS) src/counter-sequential-v3.cpp
+	$(CXX) -o $@ $(CFLAGS) src/counter-sequential-v3.cpp
+
+counter_sequential_v5: $(HEADERS) src/counter-sequential-v5.cpp
+	$(CXX) -o $@ $(CFLAGS) src/counter-sequential-v5.cpp
+
 solver_parallel_v2: $(HEADERS) src/solver-parallel-v2.cpp
 	$(CXX) -o $@ $(CFLAGS) src/solver-parallel-v2.cpp
 
@@ -40,6 +46,12 @@ solver_parallel_v3: $(HEADERS) src/solver-parallel-v3.cpp
 
 solver_parallel_v5: $(HEADERS) src/solver-parallel-v5.cpp
 	$(CXX) -o $@ $(CFLAGS) src/solver-parallel-v5.cpp
+
+counter_parallel_v3: $(HEADERS) src/counter-parallel-v3.cpp
+	$(CXX) -o $@ $(CFLAGS) src/counter-parallel-v3.cpp
+
+counter_parallel_v5: $(HEADERS) src/counter-parallel-v5.cpp
+	$(CXX) -o $@ $(CFLAGS) src/counter-parallel-v5.cpp
 
 clean:
 	rm -rf ./solver*
